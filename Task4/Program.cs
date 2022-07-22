@@ -8,9 +8,12 @@
     new Entry("Diego", "4(815)37468", true),
 };
 
-var result = entries.Where(x => x.IsPortable == true).Select(x => x.Name + " " + x.Phone + "\n");
+var result = entries.Where(x => x.IsPortable == true).OrderBy(x => x.Name);
 
-Console.WriteLine(String.Join("", result));
+int i = 1;
+foreach (var entry in result)
+    Console.WriteLine($"{i++}) {entry.Name} - {entry.Phone}");
+
 Console.ReadKey();
 
 class Entry

@@ -9,6 +9,6 @@ internal static class Extensions
     internal static IEnumerable<int> Rotate(this IEnumerable<int> source, int n)
     {
         n = n % source.Count();
-        return source.Skip(n).Take(source.Count() - n).Concat(source.Take(n));
+        return source.Skip(n).Concat(source.Take(n));
     }
 }
